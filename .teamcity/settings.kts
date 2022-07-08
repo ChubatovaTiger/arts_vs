@@ -87,9 +87,6 @@ object LocalStorage : BuildType({
     }
 
     dependencies {
-        snapshot(S3multipart_S3storage) {
-            reuseBuilds = ReuseBuilds.NO
-        }
         snapshot(S3storage_S3storage) {
             reuseBuilds = ReuseBuilds.NO
         }
