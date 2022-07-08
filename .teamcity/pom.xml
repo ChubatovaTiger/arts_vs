@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ChubatovaTiger 
-ChubatovaTiger
-/
-73341versioned
-Private
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-73341versioned/.teamcity/pom.xml
-
-admin TeamCity change in '73341' project: Synchronization with own VCS root…
-…
-Latest commit ced4f1c on 1 Dec 2021
- History
- 1 contributor
-104 lines (98 sloc)  2.9 KB
-
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
@@ -131,17 +102,3 @@ Latest commit ced4f1c on 1 Dec 2021
     </dependency>
   </dependencies>
 </project>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
