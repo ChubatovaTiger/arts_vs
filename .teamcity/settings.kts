@@ -85,7 +85,7 @@ object LocalStorage : BuildType({
                     
                 done
                 echo "##teamcity[publishArtifacts 'dir/**']"
-                echo "##teamcity[publishArtifacts '**/.bat']"
+                echo "##teamcity[publishArtifacts '*.bat']"
             """.trimIndent()
         }
     }
