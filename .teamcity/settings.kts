@@ -1,7 +1,8 @@
-import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.projectFeatures.activeStorage
-import jetbrains.buildServer.configs.kotlin.projectFeatures.s3Storage
+
+import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.activeStorage
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.s3Storage
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -25,7 +26,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2022.04"
+version = "2021.1"
 
 project {
 
