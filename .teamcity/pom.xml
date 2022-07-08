@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <name>ArtifactsFromServiceMessages Config DSL Script</name>
-  <groupId>ArtifactsFromServiceMessages</groupId>
-  <artifactId>ArtifactsFromServiceMessages_dsl</artifactId>
+  <name>Arts Config DSL Script</name>
+  <groupId>Arts</groupId>
+  <artifactId>Arts_dsl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
