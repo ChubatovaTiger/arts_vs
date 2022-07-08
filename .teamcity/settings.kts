@@ -71,8 +71,17 @@ object LocalStorage : BuildType({
             scriptContent = """
                 mkfile 1g 1.txt
                 mkfile 1g 2.txt
-                mkfile 1g 2.txt
+                
                 echo "##teamcity[publishArtifacts '*.txt']"
+                mkdir dir
+                for j in ${'$'}(seq 1 1 10000)
+                do
+                	echo a > ${'$'}j.bat
+                    echo a > dir/${'$'}j.cmd
+                    
+                done
+                echo "##teamcity[publishArtifacts 'dir/**']"
+                echo "##teamcity[publishArtifacts '**/.bat']"
             """.trimIndent()
         }
     }
