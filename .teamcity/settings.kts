@@ -85,12 +85,6 @@ object LocalStorage : BuildType({
             """.trimIndent()
         }
     }
-
-    dependencies {
-        snapshot(S3storage_S3storage) {
-            reuseBuilds = ReuseBuilds.NO
-        }
-    }
 })
 
 
