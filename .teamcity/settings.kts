@@ -58,6 +58,10 @@ project {
 object LocalStorage : BuildType({
     name = "localStorage"
 
+    vcs {
+        cleanCheckout = true
+    }
+
     steps {
         script {
             name = "art1"
