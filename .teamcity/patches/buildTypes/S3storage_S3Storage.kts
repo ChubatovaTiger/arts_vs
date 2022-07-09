@@ -32,6 +32,7 @@ create(RelativeId("S3storage"), BuildType({
         }
         script {
             name = "art2"
+            enabled = false
             scriptContent = """
                 for j in ${'$'}(seq 1 1 50)
                 do
