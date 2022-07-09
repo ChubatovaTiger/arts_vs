@@ -39,6 +39,10 @@ changeBuildType(RelativeId("LocalStorage")) {
         }
     }
     steps {
+        update<ScriptBuildStep>(0) {
+            enabled = false
+            clearConditions()
+        }
         update<ScriptBuildStep>(1) {
             enabled = false
             clearConditions()
