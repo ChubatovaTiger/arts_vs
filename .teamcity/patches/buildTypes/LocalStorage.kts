@@ -76,6 +76,11 @@ changeBuildType(RelativeId("LocalStorage")) {
                 """.trimIndent()
             }
         }
+        insert(3) {
+            script {
+                scriptContent = "rm -rf %system.agent.home.dir%/system/.artifacts_cache"
+            }
+        }
     }
 
     dependencies {
