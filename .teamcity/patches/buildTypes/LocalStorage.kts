@@ -41,7 +41,6 @@ changeBuildType(RelativeId("LocalStorage")) {
     steps {
         update<ScriptBuildStep>(0) {
             name = ""
-            enabled = false
             clearConditions()
             scriptContent = "rm -rf %system.agent.home.dir%/system/.artifacts_cache"
         }
