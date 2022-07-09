@@ -43,6 +43,7 @@ create(RelativeId("S3storage"), BuildType({
         }
         script {
             name = "art3"
+            enabled = false
             scriptContent = """
                 mkfile 1m 1.txt
                 mkfile 1m 2.txt
