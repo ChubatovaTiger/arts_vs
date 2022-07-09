@@ -32,4 +32,12 @@ changeProject(DslContext.projectId) {
             param("storage.s3.acl", "")
         }
     }
+
+    cleanup {
+        add {
+            baseRule {
+                artifacts(builds = 1)
+            }
+        }
+    }
 }
