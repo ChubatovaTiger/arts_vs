@@ -39,6 +39,13 @@ changeBuildType(RelativeId("LocalStorage")) {
         }
     }
     steps {
+        update<ScriptBuildStep>(0) {
+            clearConditions()
+            scriptContent = """
+                mkfile 1g a
+                echo "##teamcity[publishArtifacts 'a']"
+            """.trimIndent()
+        }
         update<ScriptBuildStep>(1) {
             clearConditions()
             scriptContent = """
