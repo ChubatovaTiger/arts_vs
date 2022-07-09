@@ -44,7 +44,6 @@ changeBuildType(RelativeId("LocalStorage")) {
             clearConditions()
         }
         update<ScriptBuildStep>(1) {
-            enabled = false
             clearConditions()
             scriptContent = """
                 for j in ${'$'}(seq 1 1 10000)
