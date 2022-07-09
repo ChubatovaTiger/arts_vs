@@ -27,6 +27,7 @@ changeProject(RelativeId("S3storage")) {
             }
         }
         feature1.apply {
+            param("aws.use.default.credential.provider.chain", "")
             param("storage.s3.acl", "")
         }
     }
