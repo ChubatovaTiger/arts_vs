@@ -24,6 +24,7 @@ create(RelativeId("S3storage"), BuildType({
         }
         script {
             name = "art1"
+            enabled = false
             scriptContent = """
                 mkfile 1g a
                 echo "##teamcity[publishArtifacts 'a']"
