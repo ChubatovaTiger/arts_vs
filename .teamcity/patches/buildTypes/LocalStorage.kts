@@ -46,7 +46,7 @@ changeBuildType(RelativeId("LocalStorage")) {
         update<ScriptBuildStep>(1) {
             clearConditions()
             scriptContent = """
-                for j in ${'$'}(seq 1 1 10000)
+                for j in ${'$'}(seq 1 1 50)
                 do
                 	mkfile 1mb file${'$'}j
                     echo "##teamcity[publishArtifacts 'file${'$'}j']"
