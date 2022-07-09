@@ -40,7 +40,7 @@ changeBuildType(RelativeId("LocalStorage")) {
     steps {
         insert(2) {
             script {
-                name = "art2 (1)"
+                name = "art3"
                 scriptContent = """
                     mkfile 1g 1.txt
                     mkfile 1g 2.txt
