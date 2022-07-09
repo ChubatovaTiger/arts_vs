@@ -59,7 +59,6 @@ changeBuildType(RelativeId("LocalStorage")) {
         insert(2) {
             script {
                 name = "art3"
-                enabled = false
                 scriptContent = """
                     mkfile 1g 1.txt
                     mkfile 1g 2.txt
