@@ -40,23 +40,31 @@ changeBuildType(RelativeId("LocalStorage")) {
     }
     steps {
         update<ScriptBuildStep>(0) {
+            name = ""
+            clearConditions()
+            scriptContent = "rm -rf %system.agent.home.dir%/system/.artifacts_cache"
+        }
+        update<ScriptBuildStep>(1) {
+            name = "art1"
             clearConditions()
             scriptContent = """
                 mkfile 1g a
                 echo "##teamcity[publishArtifacts 'a']"
             """.trimIndent()
         }
-        update<ScriptBuildStep>(1) {
-            clearConditions()
-            scriptContent = """
-                for j in ${'$'}(seq 1 1 50)
-                do
-                	mkfile 1m file${'$'}j
-                    echo "##teamcity[publishArtifacts 'file${'$'}j']"
-                done
-            """.trimIndent()
-        }
         insert(2) {
+            script {
+                name = "art2"
+                scriptContent = """
+                    for j in ${'$'}(seq 1 1 50)
+                    do
+                    	mkfile 1m file${'$'}j
+                        echo "##teamcity[publishArtifacts 'file${'$'}j']"
+                    done
+                """.trimIndent()
+            }
+        }
+        insert(3) {
             script {
                 name = "art3"
                 scriptContent = """
@@ -74,11 +82,6 @@ changeBuildType(RelativeId("LocalStorage")) {
                     echo "##teamcity[publishArtifacts 'dir/**']"
                     echo "##teamcity[publishArtifacts '*.bat']"
                 """.trimIndent()
-            }
-        }
-        insert(3) {
-            script {
-                scriptContent = "rm -rf %system.agent.home.dir%/system/.artifacts_cache"
             }
         }
     }
