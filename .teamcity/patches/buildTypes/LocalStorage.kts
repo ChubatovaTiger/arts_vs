@@ -16,5 +16,11 @@ changeBuildType(RelativeId("LocalStorage")) {
             }
         }
 
+        remove(RelativeId("S3storage_S3storage")) {
+            snapshot {
+                reuseBuilds = ReuseBuilds.NO
+            }
+        }
+
     }
 }
