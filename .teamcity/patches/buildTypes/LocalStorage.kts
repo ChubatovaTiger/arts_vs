@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
@@ -38,6 +39,16 @@ changeBuildType(RelativeId("LocalStorage")) {
         }
     }
     steps {
+        update<ScriptBuildStep>(1) {
+            clearConditions()
+            scriptContent = """
+                for j in ${'$'}(seq 1 1 10000)
+                do
+                	mkfile 1mb file${'$'}j
+                    echo "##teamcity[publishArtifacts 'file${'$'}j']"
+                done
+            """.trimIndent()
+        }
         insert(2) {
             script {
                 name = "art3"
