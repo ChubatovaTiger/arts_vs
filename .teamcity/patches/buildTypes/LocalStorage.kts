@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -9,6 +10,56 @@ To apply the patch, change the buildType with id = 'LocalStorage'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("LocalStorage")) {
+    expectSteps {
+        script {
+            name = "art1"
+            scriptContent = """
+                mkfile 3g a
+                echo "##teamcity[publishArtifacts 'a']"
+            """.trimIndent()
+        }
+        script {
+            name = "art2"
+            scriptContent = """
+                mkfile 1g 1.txt
+                mkfile 1g 2.txt
+                
+                echo "##teamcity[publishArtifacts '*.txt']"
+                mkdir dir
+                for j in ${'$'}(seq 1 1 10000)
+                do
+                	echo a > ${'$'}j.bat
+                    echo a > dir/${'$'}j.cmd
+                    
+                done
+                echo "##teamcity[publishArtifacts 'dir/**']"
+                echo "##teamcity[publishArtifacts '*.bat']"
+            """.trimIndent()
+        }
+    }
+    steps {
+        insert(2) {
+            script {
+                name = "art2 (1)"
+                scriptContent = """
+                    mkfile 1g 1.txt
+                    mkfile 1g 2.txt
+                    
+                    echo "##teamcity[publishArtifacts '*.txt']"
+                    mkdir dir
+                    for j in ${'$'}(seq 1 1 10000)
+                    do
+                    	echo a > ${'$'}j.bat
+                        echo a > dir/${'$'}j.cmd
+                        
+                    done
+                    echo "##teamcity[publishArtifacts 'dir/**']"
+                    echo "##teamcity[publishArtifacts '*.bat']"
+                """.trimIndent()
+            }
+        }
+    }
+
     dependencies {
         remove(RelativeId("S3multipart_S3storage")) {
             snapshot {
