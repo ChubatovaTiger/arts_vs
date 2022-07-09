@@ -48,7 +48,7 @@ changeBuildType(RelativeId("LocalStorage")) {
             scriptContent = """
                 for j in ${'$'}(seq 1 1 50)
                 do
-                	mkfile 1mb file${'$'}j
+                	mkfile 1m file${'$'}j
                     echo "##teamcity[publishArtifacts 'file${'$'}j']"
                 done
             """.trimIndent()
