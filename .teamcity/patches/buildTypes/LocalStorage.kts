@@ -60,8 +60,8 @@ changeBuildType(RelativeId("LocalStorage")) {
             script {
                 name = "art3"
                 scriptContent = """
-                    mkfile 1g 1.txt
-                    mkfile 1g 2.txt
+                    mkfile 1m 1.txt
+                    mkfile 1m 2.txt
                     
                     echo "##teamcity[publishArtifacts '*.txt']"
                     mkdir dir
